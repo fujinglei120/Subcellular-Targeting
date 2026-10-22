@@ -33,10 +33,10 @@ pipeline = Pipeline([
 
 # 定义超参数网格
 param_grid = {
-    'clf__n_estimators': [50, 100, 200],
-    'clf__learning_rate': [0.01, 0.1, 0.5],
-    'clf__max_depth': [3, 5, 7],
-    'clf__gamma': [0, 0.1, 0.5],
+    'clf__n_estimators': [10, 50],
+    'clf__learning_rate': [0.05, 0.1, 0.5],
+    'clf__max_depth': [1, 3],
+    'clf__gamma': [0.1, 0.5],
     'clf__colsample_bytree': [0.5, 0.8, 1.0]
     # 'clf__scale_pos_weight': [1, 2, 3]  # 正样本与负样本的权重比例。在不平衡的数据集中，调整这个参数可以帮助模型更好地学习
 }
