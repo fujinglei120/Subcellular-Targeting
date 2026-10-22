@@ -62,7 +62,7 @@ model = KerasClassifier(build_fn=create_model, epochs=100, batch_size=32, verbos
 param_grid = {
     'optimizer': ['rmsprop'],  # 优化器
     'embedding_dim': [256],  # embedding_dim定义了词向量的维度
-    'num_filters': [256],  # 卷积层的过滤器数量
+    'num_filters': [32, 64, 128],  # 卷积层的过滤器数量
     'batch_size': [10],
     'epochs': [50]
 }
