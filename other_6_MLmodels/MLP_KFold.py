@@ -31,10 +31,10 @@ pipeline = Pipeline([
 
 # 设置超参数网格
 param_grid = {
-    'mlp__hidden_layer_sizes': [(100,), (200,), (100, 100)],
+    'mlp__hidden_layer_sizes': [32, 64],
     'mlp__activation': ['tanh', 'relu'],
     'mlp__solver': ['adam', 'sgd'],
-    'mlp__max_iter': [500, 800],
+    'mlp__max_iter': [100, 200],
     'mlp__alpha': [0.0001, 0.001]
 }
 
