@@ -7,11 +7,11 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics import f1_score, accuracy_score, matthews_corrcoef
 
 # 加载模型
-model = load_model('./last/cnn_model_GridSearchCV_best_20240720.h5')
+model = load_model('other_6_MLmodels/cnn_model_GridSearchCV.h5')
 print("Model loaded from disk")
 
 # 读取CSV文件
-file_path = "C:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_test_20240717.csv"
+file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_test.csv"
 column_names = ["SMILES", "Label"]  # 假设CSV文件中包含了正确的标签列
 data = pd.read_csv(file_path, usecols=column_names)
 
@@ -57,5 +57,5 @@ print(f"Matthews Correlation Coefficient (MCC): {mcc}")
 predictions_df = pd.DataFrame({'SMILES': data['SMILES'], 'Predicted_Label': predictions})
 
 # 保存预测结果到CSV文件
-predictions_df.to_csv('./last/CNN_pred_0720.csv', index=False)
+predictions_df.to_csv('other_6_MLmodels/CNN_pred.csv', index=False)
 print("Predictions saved to 'CNN_pred_0720.csv'")
