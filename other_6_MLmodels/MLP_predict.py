@@ -5,11 +5,11 @@ from rdkit.Chem import AllChem
 from sklearn.metrics import accuracy_score, f1_score, matthews_corrcoef
 
 # 加载保存的MLP模型
-model_file = "./last/mlp_model_GridSearchCV_best_20240721.pkl"
+model_file = "other_6_MLmodels/mlp_model_GridSearchCV.pkl"
 model = joblib.load(model_file)
 
 # 读取CSV文件
-file_path = "C:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_test_20240717.csv"
+file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_test.csv"
 data = pd.read_csv(file_path)
 
 # 确保新数据集中包含真实标签列
@@ -47,7 +47,7 @@ predictions_df = pd.DataFrame({'SMILES': data['SMILES'], 'Label': predictions})
 
 # 将预测结果保存到新的CSV文件中
 output_data = pd.DataFrame({'SMILES': smiles_list, 'Prediction': predictions})
-output_file_path = "./last/MLP_pred_0721.csv"  # 你希望保存的输出文件路径
+output_file_path = "other_6_MLmodels/MLP_pred.csv"  # 你希望保存的输出文件路径
 output_data.to_csv(output_file_path, index=False)
 
 print(f"Predictions saved to {output_file_path}")
