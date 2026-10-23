@@ -9,7 +9,7 @@ from sklearn.pipeline import Pipeline
 import joblib
 
 # 读取包含SMILES和标签的数据
-file_path = "C:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_train_20240717.csv"
+file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_train.csv"
 column_names = ["SMILES", "Label"]
 data = pd.read_csv(file_path, usecols=column_names)
 
@@ -37,12 +37,7 @@ param_grid = {
     'svm__degree': [2, 3, 4],  # 多项式核的度数
     'svm__coef0': [0, 1, 2],  # 独立于特征的核函数系数
     'svm__tol': [1e-3, 1e-4],  # 优化过程中的容忍度
-    # 'svm__max_iter': [100, 1000],  # 最大迭代次数
     'svm__class_weight': ['balanced', None],  # 类权重
-    # 'svm__kernel': ['linear', 'rbf'],  # 核函数类型
-    # 'svm__C': [0.1, 1, 10],  # 正则化参数
-    # 'svm__gamma': ['scale', 'auto']  # RBF核函数的参数，它定义了单个训练样本的影响范围，可以看作是核函数的“带宽”。
-    # gamma值较小意味着更远的影响范围，而较大的gamma值意味着更近的影响范围
 }
 
 # 初始化KFold进行交叉验证
@@ -62,8 +57,8 @@ grid_search.fit(features, labels)
 print(f"Best parameters found: {grid_search.best_params_}")
 
 # 保存最佳模型和特征缩放器
-model_filename = "./last/svm_model_GridSearchCV_best_20240718.pkl"
-scaler_filename = "./last/svm_scaler_GridSearchCV_best_20240718.pkl"
+model_filename = "other_6_MLmodels/svm_model_GridSearchCV.pkl"
+scaler_filename = "other_6_MLmodels/svm_scaler_GridSearchCV.pkl"
 
 joblib.dump(grid_search.best_estimator_, model_filename)
 joblib.dump(grid_search.best_estimator_.named_steps['scaler'], scaler_filename)
