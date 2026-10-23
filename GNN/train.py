@@ -9,7 +9,7 @@ def main():
         # 拆分数据集使用的随机种子
         '--pytorch_seed', '0',
 
-        '--data_path', 'E:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_train.csv',
+        '--data_path', 'data/SMILES_of_AIEgens_for_Organelles_Imaging_train.csv',
         '--dataset_type', 'multiclass',
         # 'regression', 'classification', 'multiclass', 'spectra'
         '--multiclass_num_classes', '4',
@@ -21,7 +21,7 @@ def main():
         # 'random', 'scaffold_balanced'
         # 'predetermined', 'crossval'
         # 'cv', 'cv-no-test', 'index_predetermined', 'random_with_repeated_smiles'
-        '--separate_test_path', 'E:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_test2.1.csv',
+        '--separate_test_path', 'data/SMILES_of_AIEgens_for_Organelles_Imaging_test.csv',
 
         '--ensemble_size', '1',
 
