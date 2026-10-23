@@ -4,11 +4,11 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 
 # 加载模型
-model_filename = "xgb_model.pkl"
+model_filename = "xgb_model_GridSearchCV.pkl"
 model = joblib.load(model_filename)
 
 # 读取新的CSV文件
-new_data_file_path = "molecules+mhq_c_4.csv"
+new_data_file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_test.csv"
 new_data = pd.read_csv(new_data_file_path)
 
 # 使用RDKit计算新数据的Morgan指纹作为特征
