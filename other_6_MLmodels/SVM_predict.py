@@ -5,13 +5,13 @@ from rdkit.Chem import AllChem
 import joblib
 
 # 加载模型和特征缩放器
-model_filename = "./last/svm_model_GridSearchCV_best_20240718.pkl"
+model_filename = "other_6_MLmodels/svm_model_GridSearchCV.pkl"
 model = joblib.load(model_filename)
-scaler_filename = "./last/svm_scaler_GridSearchCV_best_20240718.pkl"
+scaler_filename = "other_6_MLmodels/svm_scaler_GridSearchCV.pkl"
 scaler = joblib.load(scaler_filename)
 
 # 读取新的CSV文件
-new_data_file_path = "C:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_test_20240717.csv"
+new_data_file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_test.csv"
 new_data = pd.read_csv(new_data_file_path)
 
 # 确保新数据集中包含真实标签列
@@ -46,7 +46,7 @@ print(f"Weighted F1 Score: {f1}")
 print(f"Matthews Correlation Coefficient (MCC): {mcc}")
 
 # 如果你想保存预测结果到CSV文件
-output_csv_path = "./last/SVM_pred_0718.csv"
+output_csv_path = "other_6_MLmodels/SVM_pred.csv"
 predictions_df = pd.DataFrame({'SMILES': new_data['SMILES'], 'Label': predictions})
 predictions_df.to_csv(output_csv_path, index=False)
 
