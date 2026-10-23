@@ -2,7 +2,7 @@ import chemprop
 
 def main():
     arguments = [
-        '--test_path', 'E:/BIT/codes/chemprop/data/20220710/test/20220710design.csv',
+        '--test_path', 'data/SMILES_of_AIEgens_for_Organelles_Imaging_train.csv',
         '--preds_path', 'E:/BIT/codes/chemprop/data/20220710/test/20220710design_pred.csv',
         '--checkpoint_dir', '20220710_4_checkpoints_20240721_best_01',
         '--num_workers', '4',
