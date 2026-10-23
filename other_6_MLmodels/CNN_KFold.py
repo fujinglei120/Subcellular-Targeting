@@ -11,7 +11,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 
 
 # 读取包含SMILES和标签的数据
-file_path = "C:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_train_20240717.csv"
+file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_train.csv"
 column_names = ["SMILES", "Label"]
 data = pd.read_csv(file_path, usecols=column_names)
 
@@ -79,7 +79,7 @@ print("Best parameters found: ", grid_search.best_params_)
 print("Best accuracy found: ", grid_search.best_score_)
 
 # 训练最佳模型并保存
-model_filename = "./last/cnn_model_GridSearchCV_best_20240720.h5"
+model_filename = "other_6_MLmodels/cnn_model_GridSearchCV.h5"
 best_model = create_model(**grid_search.best_params_)
 best_model.fit(padded_sequences, data["Label"], epochs=100, batch_size=32, verbose=1)
 best_model.save(model_filename)
