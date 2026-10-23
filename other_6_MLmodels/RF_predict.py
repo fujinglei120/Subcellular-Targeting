@@ -5,11 +5,11 @@ from rdkit.Chem import AllChem
 from sklearn.metrics import accuracy_score, f1_score, matthews_corrcoef
 
 # 加载保存的RF模型
-model_filename = "./last/rf_model_GridSearchCV_best_20240721.pkl"
+model_filename = "other_6_MLmodels/rf_model_GridSearchCV.pkl"
 model = joblib.load(model_filename)
 
 # 读取新的CSV文件
-new_data_file_path = "C:/BIT/codes/chemprop/data/20220710/last/SMILES_Canonical_of_AIEgens_for_Organelles_Imaging_test_20240717.csv"
+new_data_file_path = "data/SMILES_of_AIEgens_for_Organelles_Imaging_test.csv"
 new_data = pd.read_csv(new_data_file_path)
 
 # 确保新数据集中包含真实标签列
@@ -43,7 +43,7 @@ print(f"Matthews Correlation Coefficient (MCC): {mcc}")
 predictions_df = pd.DataFrame({'SMILES': new_data['SMILES'], 'Label': predictions})
 
 # 将预测结果保存到新的CSV文件中
-output_csv_path = "./last/RF_pred_0721.csv"
+output_csv_path = "other_6_MLmodels/RF_pred.csv"
 predictions_df.to_csv(output_csv_path, index=False)
 
 print(f"Predictions saved to {output_csv_path}")
